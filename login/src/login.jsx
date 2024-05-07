@@ -20,7 +20,7 @@ export function Header() {
                     
                     <div className='a-container'>
                         <div className='header-text'>
-                            <a >Trasencendencias</a>
+                            <a >Trascendencias</a>
                             <a >Horario</a>
                             <a >Ubicacion</a>
                             <a >Historia</a>
@@ -40,14 +40,16 @@ export function LoginRegister () {
                 <div className = 'content'>
                     <h1 className = 'title'>Log In</h1>
                         <span>
-                        <button className = 'button-1 'onClick={()=> navigate('/eventPage')} >Continuar con E-mail</button>
-                            <div className='line-container'>
-                                <hr className='line'/>
-                                <span className='text-line'>O</span>
-                                <hr className='line'/>
+                            <button className = 'button-1 'onClick={()=> navigate('/eventPage')} >Continuar con E-mail</button>
+                                <div className='line-container'>
+                                    <hr className='line'/>
+                                    <span className='text-line'>O</span>
+                                    <hr className='line'/>
+                                </div>
+                            <button className='button-2' onClick={()=> navigate('/eventPage')} >Continuar con Google</button>
+                            <div className='center-items'>
+                                <label className='sign-up'>Necesitas crear una cuenta? <a className='sign-up-label' href='/register'>Hazlo Aqui</a></label>
                             </div>
-                        <button className='button-2' onClick={()=> navigate('/eventPage')} >Continuar con Google</button>
-                        <label>Necesitas crear una cuenta?</label><a>Hazlo Aqui</a>
                         </span>
                 </div>
             </div>
