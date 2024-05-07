@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './logStyle.css'
 import { useNavigate } from 'react-router-dom';
-import './Event.css'
+import './header.css'
 
 const NAVIGATION_EVENT = 'pushstate'
 
@@ -11,21 +11,64 @@ function navigate(href) {
     window.dispatchEvent(navigationEvent)
 }
 
+
+export function Header() {
+    return (
+        <div>
+             
+                <div className='header'>
+                    
+                    <div className='a-container'>
+                        <div className='header-text'>
+                            <a >Trasencendencias</a>
+                            <a >Horario</a>
+                            <a >Ubicacion</a>
+                            <a >Historia</a>
+                            <a >Vacantes</a>
+                            <a >Patrocinadores</a>
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+    )
+}
+export function LoginRegister () {
+    return(
+        <div>
+            <div className ='card'>
+                <div className = 'content'>
+                    <h1 className = 'title'>Log In</h1>
+                        <span>
+                        <button className = 'button-1 'onClick={()=> navigate('/eventPage')} >Continuar con E-mail</button>
+                            <div className='line-container'>
+                                <hr className='line'/>
+                                <span className='text-line'>O</span>
+                                <hr className='line'/>
+                            </div>
+                        <button className='button-2' onClick={()=> navigate('/eventPage')} >Continuar con Google</button>
+                        <label>Necesitas crear una cuenta?</label><a>Hazlo Aqui</a>
+                        </span>
+                </div>
+            </div>
+        </div>
+    )
+}
 export function Login () {
     return(
         <div>
             <div className ='card'>
                 <div className = 'content'>
-                    <h1 className = 'title'>Iniciar Sesion</h1>
+                    <h1 className = 'title'>Log In</h1>
                         <span>
                             <div className = 'label'>Introduce tu usuario:</div>
                             <input type = 'text' id = "User" placeholder = "Usuario"></input>
                             <br/>
-                            <div className = 'label'>Introduce tu contraseña:</div>
-                            <input type = 'text' id = "Password" placeholder = "Contraseña"></input>
+                            <button onClick={()=> navigate('/eventPage')} >Iniciar Sesion</button>
+                            <div className = 'label'>Introduce tu contrasena:</div>
+                            <input type = 'text' id = "Password" placeholder = "Contrasena"></input>
                             <br/>
                             <button onClick={()=> navigate('/eventPage')} >Iniciar Sesion</button>
-
                         </span>
                 </div>
             </div>
@@ -39,12 +82,12 @@ export function Login () {
     )
 }
 
+
 export function EventPage() {
     return (
         <div>
             <div>
                 <div className='header'>
-                    <img className='logo' src = '../assets/Logo-cetys.png'/>
                     <button className='conf-button'>
                     </button>
                 </div>
@@ -115,7 +158,7 @@ export function App() {
     const [currentPath, setCurrentPath] = useState(window.location.pathname)
 
 
-        useEffect(() => {
+        useEffect(() => {//carga cuando se inicia la pagina por primera vez
             const onLocationChange = () =>{
                 setCurrentPath(window.location.pathname)
             }
@@ -129,7 +172,8 @@ export function App() {
         },[])
     return(
         <main>
-            {currentPath == '/' && <Login/>}
+            <Header/>
+            {currentPath == '/' && <LoginRegister/>}
             {currentPath == '/register' && <Register/>}
             {currentPath == '/eventPage' && <EventPage/>}
 
